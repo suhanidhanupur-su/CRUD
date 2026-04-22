@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h2>Add Student</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    Name: <input type="text" name="name"><br><br>
+    Roll: <input type="number" name="roll"><br><br>
+    City: <input type="text" name="city"><br><br>
+    Image: <input type="file" name="image"><br><br>
+
+    <button type="submit">Save</button>
+</form>
+
+{% endblock %}

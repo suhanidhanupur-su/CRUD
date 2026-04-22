@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h2>Student List</h2>
+
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Roll</th>
+    <th>City</th>
+    <th>Image</th>
+</tr>
+
+{% for i in students %}
+<tr>
+    <td>{{ i.std_name }}</td>
+    <td>{{ i.std_roll }}</td>
+    <td>{{ i.std_city }}</td>
+    <td>
+        <img src="{{ i.std_image.url }}" width="100">
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}
