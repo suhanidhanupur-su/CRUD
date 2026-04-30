@@ -4,28 +4,30 @@
 
 <div style="width: 40%; margin: 50px auto; padding: 30px; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 0px 10px #ccc; background-color: #f9f9f9;">
 
-    <h2 style="text-align: center; color: #333; margin-bottom: 25px;">Add Student</h2>
+    <h2 style="text-align: center; color: #333; margin-bottom: 25px;">Edit Student</h2>
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
         <label style="font-weight: bold;">Name:</label><br>
-        <input type="text" name="name" placeholder="Enter student name"
+        <input type="text" name="name" value="{{ student.std_name }}"
                style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"><br>
 
         <label style="font-weight: bold;">Roll:</label><br>
-        <input type="number" name="roll" placeholder="Enter roll number"
+        <input type="number" name="roll" value="{{ student.std_roll }}"
                style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"><br>
 
         <label style="font-weight: bold;">City:</label><br>
-        <input type="text" name="city" placeholder="Enter city name"
+        <input type="text" name="city" value="{{ student.std_city }}"
                style="width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"><br>
 
-        <label style="font-weight: bold;">Image:</label><br>
+        <label style="font-weight: bold;">Current Image:</label><br>
+        <img src="{{ student.std_image.url }}" width="100" style="margin-bottom: 15px; border-radius: 8px;"><br>
+
+        <label style="font-weight: bold;">Change Image:</label><br>
         <input type="file" name="image"
                style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 20px;"><br>
 
-        <!-- Buttons -->
         <div style="display: flex; justify-content: space-between;">
 
             <!-- Back Button -->
@@ -39,16 +41,16 @@
                 ← Back
             </a>
 
-            <!-- Save Button -->
+            <!-- Update Button -->
             <button type="submit" 
                     style="padding: 10px 20px; 
-                           background-color: #28a745; 
+                           background-color: #007bff; 
                            color: white; 
                            border: none; 
                            border-radius: 5px;
                            font-weight: bold;
                            cursor: pointer;">
-                Save Student
+                Update Student
             </button>
 
         </div>
