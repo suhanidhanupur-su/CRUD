@@ -54,3 +54,12 @@ def edit_student(request, id):
         return redirect('student_list')
 
     return render(request, 'edit_student.html', {'student': student})
+
+
+from django.shortcuts import redirect, get_object_or_404
+from .models import Student
+
+def delete_student(request, id):
+    student = get_object_or_404(Student, id=id)
+    student.delete()
+    return redirect('student_list')
